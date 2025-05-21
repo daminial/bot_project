@@ -1,9 +1,9 @@
-from .hello import HelloScreen
-from .start import StartScreen
-from .buses import BusesScreen
-from .routes import create_route_screen
-from .adv import AdvScreen
-from .contacts import ContactScreen
+from screens.hello import HelloScreen
+from screens.start import StartScreen
+from screens.buses import BusesScreen
+from screens.routes import create_route_screen
+from screens.adv import AdvScreen
+from screens.contacts import ContactScreen
 
 __all__ = [
     'HelloScreen',

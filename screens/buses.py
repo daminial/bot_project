@@ -1,16 +1,16 @@
 from .base import Screen, Button, SourceTypes
-from .routes import create_route_screen
+from screens.routes import create_route_screen
 
 from config import BUSES_SCREEN_DESCRIPTION
 from config import ROUTE_SCREENS
 
+import screens.start as start
 class BusesScreen(Screen):
     """Экран со списком маршрутов автобусов"""
     
     description = BUSES_SCREEN_DESCRIPTION
     
     async def add_default_keyboard(self, _update, _context):
-        from .start import StartScreen
         """Создает клавиатуру с кнопками маршрутов"""
         buttons = []
         current_row = []
@@ -31,7 +31,7 @@ class BusesScreen(Screen):
         buttons.append([
             Button(
                 '🏠 На главную',
-                StartScreen,
+                start.StartScreen,
                 source_type=SourceTypes.MOVE_SOURCE_TYPE
             )
         ])

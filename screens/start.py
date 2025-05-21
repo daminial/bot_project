@@ -1,8 +1,8 @@
 from .base import StartMixin, Button, SourceTypes
 from config import START_SCREEN_DESCRIPTION
-from .buses import BusesScreen
-from .adv import AdvScreen
-from .contacts import ContactScreen
+import screens.buses as buses
+import screens.adv as adv
+import screens.contacts as contacts
 
 class StartScreen(StartMixin):
     
@@ -12,17 +12,17 @@ class StartScreen(StartMixin):
         return [
             [Button(
                 '🚌 Маршруты автобусов',
-                BusesScreen,
+                buses.BusesScreen,
                 source_type=SourceTypes.MOVE_SOURCE_TYPE,
             )],
             [Button(
                 '📄 Объявления',
-                AdvScreen,
+                adv.AdvScreen,
                 source_type=SourceTypes.MOVE_SOURCE_TYPE
             )],
             [Button(
                 '📞 Контакты',
-                ContactScreen,
+                contacts.ContactScreen,
                 source_type=SourceTypes.MOVE_SOURCE_TYPE
             )],
         ]

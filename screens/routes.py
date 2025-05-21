@@ -1,13 +1,14 @@
 from .base import Screen, Button, SourceTypes
 from config import BUSES_SCREEN_DESCRIPTION
 
+import screens.start as start
+import screens.buses as buses
+
 def create_route_screen(route_data: dict) -> type:
     class RouteScreen(Screen):
         description = f"🚌 Маршрут {route_data['name']},\nСледует пути {route_data['path']}"
         
         async def add_default_keyboard(self, _update, _context):
-            from .start import StartScreen
-            from .buses import BusesScreen
             return [
                 [Button(
                     '🗺 Посмотреть на карте',
@@ -17,12 +18,12 @@ def create_route_screen(route_data: dict) -> type:
                 [
                     Button(
                         '⬅️ Назад к маршрутам',
-                        BusesScreen,
+                        buses.BusesScreen,
                         source_type=SourceTypes.MOVE_SOURCE_TYPE
                     ),
                     Button(
                         '🏠 На главную',
-                        StartScreen,
+                        start.StartScreen,
                         source_type=SourceTypes.MOVE_SOURCE_TYPE
                     )
                 ]
