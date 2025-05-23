@@ -1,4 +1,7 @@
-from .base import Screen, register_command_handler
+from screens.base import Screen
+from screens.base import register_command_handler
+
+
 from config import HELLO_SCREEN_DESCRIPTION
 
 class HelloScreen(Screen):

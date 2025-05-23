@@ -1,17 +1,17 @@
-from hammett.core import Bot
-from hammett.core.constants import DEFAULT_STATE
-from config import ROUTE_SCREENS
+from screens.base import Bot
+from screens.base import DEFAULT_STATE
+
 from screens import (
     HelloScreen,
     StartScreen,
-    BusesScreen,
     AdvScreen,
     ContactScreen,
-    create_route_screen
+    BusesScreen,
+    SelectedRoutes,
 )
 
 def create_routes():
-    routes_data = [
+    return [
         {
             'id': '1',
             'name': '№450',
@@ -20,17 +20,15 @@ def create_routes():
         },
         {
             'id': '2',
-            'name': '№150',
+            'name': '№150', 
             'path': 'Центральный рынок - село Дружба',
             'map_url': 'https://example.com/map2'
         }
     ]
-    
-    for data in routes_data:
-        ROUTE_SCREENS.append(create_route_screen(data))
 
 def main():
-    create_routes()
+    routes = create_routes()
+    BusesScreen.set_routes(routes)
     
     bot = Bot(
         'BusRoutesBot',
@@ -42,7 +40,7 @@ def main():
                 BusesScreen,
                 AdvScreen,
                 ContactScreen,
-                *ROUTE_SCREENS
+                SelectedRoutes
             }
         },
         persistence=None

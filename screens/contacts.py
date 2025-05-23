@@ -1,5 +1,7 @@
-from .base import Screen, Button, SourceTypes
+from screens.base import Screen, Button, SourceTypes
+
 from config import CONTACT_SCREEN_DESCRIPTION
+
 import screens.start as start
 
 class ContactScreen(Screen):

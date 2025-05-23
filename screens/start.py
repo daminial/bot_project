@@ -1,6 +1,8 @@
-from .base import StartMixin, Button, SourceTypes
+from screens.base import StartMixin, Button, SourceTypes
+
 from config import START_SCREEN_DESCRIPTION
-import screens.buses as buses
+
+import screens.buses_conf as buses
 import screens.adv as adv
 import screens.contacts as contacts
 
